@@ -40,3 +40,6 @@ app.add_handler(MessageHandler(filters.ALL, main_handler))
 
 print("Bot ishga tushdi...")
 app.run_polling()
+
+print("TOKEN:", TOKEN)
+print("Yangi kodim ishladi")
