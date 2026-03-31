@@ -4,7 +4,8 @@ import asyncio
 import os
 
 TOKEN = os.getenv("BOT_TOKEN")  # 🔥 MUHIM
-
+print("TOKEN:", TOKEN)
+print("Yangi kodim ishladi")
 GROUPS = set()
 
 async def main_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -41,5 +42,4 @@ app.add_handler(MessageHandler(filters.ALL, main_handler))
 print("Bot ishga tushdi...")
 app.run_polling()
 
-print("TOKEN:", TOKEN)
-print("Yangi kodim ishladi")
+
