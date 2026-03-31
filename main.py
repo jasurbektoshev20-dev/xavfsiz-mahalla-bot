@@ -3,23 +3,20 @@ from telegram.ext import ApplicationBuilder, MessageHandler, ContextTypes, filte
 import asyncio
 import os
 
-TOKEN = os.getenv("BOT_TOKEN")  # 🔥 MUHIM
-print("TOKEN:", TOKEN)
-print("Yangi kodim ishladi")
+TOKEN = os.getenv("BOT_TOKEN")
+
 GROUPS = set()
 
 async def main_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
-    # 🔥 Guruhni saqlash
+    # Guruhni saqlash
     if update.message:
         chat = update.message.chat
-
         if chat.type in ["group", "supergroup"]:
-            if chat.id not in GROUPS:
-                GROUPS.add(chat.id)
-                print("SAQLANDI:", chat.id)
+            GROUPS.add(chat.id)
+            print("SAQLANDI:", chat.id)
 
-    # 🔥 Kanal postni forward qilish
+    # Kanal post
     if update.channel_post:
         msg = update.channel_post
         print("POST KELDI")
@@ -41,5 +38,3 @@ app.add_handler(MessageHandler(filters.ALL, main_handler))
 
 print("Bot ishga tushdi...")
 app.run_polling()
-
-
